@@ -997,5 +997,25 @@
 
 
 '''73.取一个整数a从右端开始的4〜7位'''
-num = input("请输入不少于7位数的整数:")
-print(num[-7:-3])
+# num = input("请输入不少于7位数的整数:")
+# print(num[-7:-3])
+
+
+'''74.打印杨辉三角（前10行)'''
+num = input("请输入行数:")
+num = int(num)
+
+list1 = []  #保存杨辉三角
+for n in range(num):
+    row = [1]   #保存行
+    list1.append(row)
+
+    if n==0:
+        print(row)
+        continue
+    for m in range(1,n):
+        row.append(list1[n - 1][m - 1] + list1[n - 1][m])
+    row.append(1)
+    print(row)
+
+
