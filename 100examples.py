@@ -1002,20 +1002,87 @@
 
 
 '''74.打印杨辉三角（前10行)'''
-num = input("请输入行数:")
-num = int(num)
+#方法一
+# num = input("请输入行数:")
+# num = int(num)
 
-list1 = []  #保存杨辉三角
-for n in range(num):
-    row = [1]   #保存行
-    list1.append(row)
+# list1 = []  #保存杨辉三角
+# for n in range(num):
+#     row = [1]   #保存行
+#     list1.append(row)
 
-    if n==0:
-        print(row)
-        continue
-    for m in range(1,n):
-        row.append(list1[n - 1][m - 1] + list1[n - 1][m])
-    row.append(1)
-    print(row)
+#     if n==0:
+#         print(row)
+#         continue
+#     for m in range(1,n):
+#         row.append(list1[n - 1][m - 1] + list1[n - 1][m])
+#     row.append(1)
+#     print(row)
+
+
+#方法二
+# a = []
+# for i in range(10):
+# 	a.append([])
+# 	for j in range(10):
+# 		a[i].append(0)
+# for i in range(10):
+# 	a[i][0] = 1
+# 	a[i][i] = 1
+# for i in range(2,10):
+# 	for j in range(1,i):
+# 		a[i][j] = a[i-1][j-1] + a[i-1][j]
+# for i in range(10):
+# 	for j in range(i+1):
+# 		print(a[i][j],end = ' ')
+# 	print()
+
+
+
+'''75.输入数组，最大的与第一个元素交换，最小的与最后一个元素交换，输出数组'''
+#方法一
+# a = list(map(int,input("请输入6个整数，以逗号分隔:").split(',')))
+# print(a)
+# max = 0
+# min = 0
+# for i in range(0,len(a)-1):
+# 	if a[max] < a[i]:
+# 		max = i
+# 	if a[min] > a[i]:
+# 		min = i
+# a[0],a[max] = a[max],a[0]
+# a[5],a[min] = a[min],a[5]
+# print(a)
+
+#方法二、函数法
+def inp(a):
+	for i in range(6):
+		a.append(int(input("请输入整数:")))
+
+def arry_min(arry):
+	min = 0
+	for i in range(0,len(arry)-1):
+		if arry[min] > arry[i]:
+			min = i
+	arry[5],arry[min] = arry[min],arry[5]
+
+def arry_max(arry):
+	max = 0
+	for i in range(0,len(arry)-1):
+		if arry[max] < arry[i]:
+			max = i
+	arry[0],arry[max] = arry[max],arry[0]
+
+def outp(a):
+	for i in range(len(a)):
+		print(a[i],end = ' ')
+
+if __name__ =='__main__':
+	arry = []
+	inp(arry)
+	arry_max(arry)
+	arry_min(arry)
+	outp(arry)
+
 
 
