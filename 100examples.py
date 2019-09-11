@@ -1055,34 +1055,40 @@
 # print(a)
 
 #方法二、函数法
-def inp(a):
-	for i in range(6):
-		a.append(int(input("请输入整数:")))
+# def inp(a):
+# 	for i in range(6):
+# 		a.append(int(input("请输入整数:")))
 
-def arry_min(arry):
-	min = 0
-	for i in range(0,len(arry)-1):
-		if arry[min] > arry[i]:
-			min = i
-	arry[5],arry[min] = arry[min],arry[5]
+# def arry_min(arry):
+# 	min = 0
+# 	for i in range(0,len(arry)-1):
+# 		if arry[min] > arry[i]:
+# 			min = i
+# 	arry[5],arry[min] = arry[min],arry[5]
 
-def arry_max(arry):
-	max = 0
-	for i in range(0,len(arry)-1):
-		if arry[max] < arry[i]:
-			max = i
-	arry[0],arry[max] = arry[max],arry[0]
+# def arry_max(arry):
+# 	max = 0
+# 	for i in range(0,len(arry)-1):
+# 		if arry[max] < arry[i]:
+# 			max = i
+# 	arry[0],arry[max] = arry[max],arry[0]
 
-def outp(a):
-	for i in range(len(a)):
-		print(a[i],end = ' ')
+# def outp(a):
+# 	for i in range(len(a)):
+# 		print(a[i],end = ' ')
 
-if __name__ =='__main__':
-	arry = []
-	inp(arry)
-	arry_max(arry)
-	arry_min(arry)
-	outp(arry)
+# if __name__ =='__main__':
+# 	arry = []
+# 	inp(arry)
+# 	arry_max(arry)
+# 	arry_min(arry)
+# 	outp(arry)
 
 
+
+'''76.有 n 个整数，使其前面各数顺序向后移 m 个位置，最后 m 个数变成最前面的 m 个数'''
+m = int(input("请输入后移的位数:"))
+numbers = list(map(int,input("请输入整数并以逗号分隔:").split(',')))
+a = numbers[-m:] + numbers[0:len(numbers)-m]
+print(a)
 
