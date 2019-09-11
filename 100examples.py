@@ -1085,10 +1085,29 @@
 # 	outp(arry)
 
 
-
 '''76.有 n 个整数，使其前面各数顺序向后移 m 个位置，最后 m 个数变成最前面的 m 个数'''
-m = int(input("请输入后移的位数:"))
-numbers = list(map(int,input("请输入整数并以逗号分隔:").split(',')))
-a = numbers[-m:] + numbers[0:len(numbers)-m]
-print(a)
+#方法1.
+# m = int(input("请输入后移的位数:"))
+# numbers = list(map(int,input("请输入整数并以逗号分隔:").split(',')))
+# a = numbers[-m:] + numbers[0:len(numbers)-m]
+# print(a)
 
+#方法2.
+n = int(input("整数n为:"))
+m = int(input("向后移m个位置为:"))
+
+def move(arry,n,m):
+    arry_end = arry[n-1]
+    for i in range(n-1,-1,-1):
+        arry[i] = arry[i-1]
+    arry[0] = arry_end
+    m -= 1
+    if m>0:
+        move(arry,n,m)
+
+number = []
+for i in range(n):
+    number.append(int(input("请输入一个数:")))
+print("原始列表:",number)
+move(number,n,m)
+print("移动之后:",number)
