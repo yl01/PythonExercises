@@ -1093,21 +1093,58 @@
 # print(a)
 
 #方法2.
-n = int(input("整数n为:"))
-m = int(input("向后移m个位置为:"))
+# n = int(input("整数n为:"))
+# m = int(input("向后移m个位置为:"))
 
-def move(arry,n,m):
-    arry_end = arry[n-1]
-    for i in range(n-1,-1,-1):
-        arry[i] = arry[i-1]
-    arry[0] = arry_end
-    m -= 1
-    if m>0:
-        move(arry,n,m)
+# def move(arry,n,m):
+#     arry_end = arry[n-1]
+#     for i in range(n-1,-1,-1):
+#         arry[i] = arry[i-1]
+#     arry[0] = arry_end
+#     m -= 1
+#     if m>0:
+#         move(arry,n,m)
 
-number = []
-for i in range(n):
-    number.append(int(input("请输入一个数:")))
-print("原始列表:",number)
-move(number,n,m)
-print("移动之后:",number)
+# number = []
+# for i in range(n):
+#     number.append(int(input("请输入一个数:")))
+# print("原始列表:",number)
+# move(number,n,m)
+# print("移动之后:",number)
+
+
+
+'''77.题目：有n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位'''
+# n = int(input("请输入人数:"))
+# ini_list = list(range(1,n+1))
+# count = 0
+# while len(ini_list)>1:
+# 	new_list = ini_list[:]
+	
+# 	for i in range(0,len(new_list)):
+# 		count = count + 1
+# 		if count % 3 == 0:
+# 			ini_list.remove(new_list[i])
+# print("最后剩下的人第{0}号".format(new_list[0]))
+
+
+'''78.编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n,当输入n为奇数时，调用函数1/1+1/3+...+1/n'''
+def peven(n):
+	sum = 0.0
+	for i in range(2,n+1,2):
+		sum += 1.0 / i
+	return sum
+
+def podd(n):
+	sum = 0.0
+	for i in range(1,n+1,2):
+		sum += 1.0 / i
+	return sum
+
+if __name__ == '__main__':
+	n = int(input("请输入整数:"))
+	if n % 2 == 0:
+		sum = peven(n)
+	else:
+		sum = podd(n)
+	print(sum)
